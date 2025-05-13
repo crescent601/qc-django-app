@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple Product Replacement Form</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>QC-Person Replacement Details</h1>
+        <form method="post">
+            {% csrf_token %}
+
+            <h2>Replacement Details</h2>
+            {{ header_form.as_p }}
+
+            <div id="product_forms_container">
+                <h2>Product 1</h2>
+                <div class="product_form">
+                    <label for="id_product-0-product">Product:</label>
+                    <select name="product-0-product" id="id_product-0-product" required>
+                        <option value="">Select Product</option>
+                        {% for product in all_products %}
+                            <option value="{{ product.id }}">{{ product.name }} ({{ product.code }})</option>
+                        {% endfor %}
+                    </select>
+                    <label for="id_product-0-total_replacement_quantity">Total Replacement Quantity:</label>
+                    <input type="number" name="product-0-total_replacement_quantity" id="id_product-0-total_replacement_quantity" class="total-replacement-qty-input-0" min="1" required>
+                    <p>Total Quantity Added: <span class="total-mfg-quantity-0">0</span></p>
+
+                    <h3>Manufacturing Details for Product 1</h3>
+                    <div class="mfg_details_container_0">
+                        <input type="hidden" name="mfg_details-0-TOTAL_FORMS" id="id_mfg_details-0-TOTAL_FORMS" value="1">
+                        <input type="hidden" name="mfg_details-0-INITIAL_FORMS" id="id_mfg_details-0-INITIAL_FORMS" value="0">
+                        <input type="hidden" name="mfg_details-0-MAX_NUM_FORMS" id="id_mfg_details-0-MAX_NUM_FORMS" value="1000">
+                        <div class="mfg_form">
+                            <label for="id_mfg_details-0-0-mfg_date">Manufacturing Date:</label>
+                            <input type="date" name="mfg_details-0-0-mfg_date" id="id_mfg_details-0-0-mfg_date" class="mfg-date-0" required>
+                            <label for="id_mfg_details-0-0-quantity">Quantity:</label>
+                            <input type="number" name="mfg_details-0-0-quantity" id="id_mfg_details-0-0-quantity" class="mfg-quantity-0" min="1" required>
+
+                            <div class="failure-options">
+                                <label>Failure Type:</label><br>
+                                <input type="checkbox" name="mfg_details-0-0-complete_fitting" id="id_mfg_details-0-0-complete_fitting">
+                                <label for="id_mfg_details-0-0-complete_fitting">Complete Fitting</label><br>
+
+                                <input type="checkbox" name="mfg_details-0-0-driver_failure" id="id_mfg_details-0-0-driver_failure">
+                                <label for="id_mfg_details-0-0-driver_failure">Driver Failure</label><br>
+
+                                <input type="checkbox" name="mfg_details-0-0-led_pcb_panel" id="id_mfg_details-0-0-led_pcb_panel">
+                                <label for="id_mfg_details-0-0-led_pcb_panel">Led PCB/PANEL</label><br>
+
+                                <input type="checkbox" name="mfg_details-0-0-ip_failure" id="id_mfg_details-0-0-ip_failure">
+                                <label for="id_mfg_details-0-0-ip_failure">IP Failure</label><br>
+
+                                <input type="checkbox" name="mfg_details-0-0-glass_brackege" id="id_mfg_details-0-0-glass_brackege">
+                                <label for="id_mfg_details-0-0-glass_brackege">Glass Brackege</label><br>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="add_mfg_button" data-product-index="0">Add Manufacturing Date</button>
+                    <hr>
+                </div>
+            </div>
+
+            <button type="button" id="add_product_button">Add Another Product</button>
+            <button type="submit">Submit</button>
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+        </form>
+
+       <script>
+            const productOptionsHTML = `{% for product in all_products %}
+                <option value="{{ product.id }}">{{ product.name }} ({{ product.code }})</option>
+            {% endfor %}`;
+        </script>
+
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

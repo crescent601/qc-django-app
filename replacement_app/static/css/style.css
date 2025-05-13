@@ -1,0 +1,197 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Gradient background */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: auto; /* In case content overflows */
+}
+
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 85%;
+    max-width: 1000px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.01);
+}
+
+h1 {
+    text-align: center;
+    color: #37474f; /* Dark grayish blue */
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    animation: pulse 1s ease-out infinite alternate; /* Pulsing heading */
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    to {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}
+
+h2 {
+    color: #546e7a; /* Blue gray */
+    margin-top: 30px;
+    border-bottom: 3px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.product_form {
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #cfd8dc; /* Light gray border */
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    animation: slideInLeft 0.4s ease-out; /* Sliding in product forms */
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #263238; /* Dark blue gray */
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: calc(100% - 16px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #b0bec5; /* Gray border */
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #03a9f4; /* Cyan focus color */
+    outline: none;
+    box-shadow: 0 0 8px rgba(3, 169, 244, 0.3);
+}
+
+h3 {
+    color: #607d8b; /* Grayish blue */
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.mfg_details_container {
+    margin-left: 20px;
+    padding: 15px;
+    border-left: 4px solid #81d4fa; /* Light blue accent */
+    border-radius: 4px;
+    background-color: #e3f2fd; /* Light blue background */
+}
+
+.mfg_form {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #bbdefb; /* Light blue border */
+    border-radius: 6px;
+    background-color: #f0f8ff; /* Light cyan background */
+}
+
+button {
+    background-color: #4caf50; /* Green */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-right: 15px;
+    box-shadow: 0 2px 5px rgba(76, 175, 80, 0.3);
+}
+
+button:hover {
+    background-color: #388e3c; /* Darker green */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.5);
+}
+
+button#add_product_button {
+    background-color: #ff9800; /* Orange */
+    box-shadow: 0 2px 5px rgba(255, 152, 0, 0.3);
+}
+
+button#add_product_button:hover {
+    background-color: #f57c00; /* Darker orange */
+    box-shadow: 0 4px 8px rgba(255, 152, 0, 0.5);
+}
+
+.add_mfg_button {
+    background-color: #607d8b; /* Grayish blue */
+    box-shadow: 0 2px 5px rgba(96, 125, 139, 0.3);
+}
+
+.add_mfg_button:hover {
+    background-color: #3e545e; /* Darker grayish blue */
+    box-shadow: 0 4px 8px rgba(96, 125, 139, 0.5);
+}
+
+hr {
+    border: 1px solid #e0e0e0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.error {
+    color: #d32f2f; /* Red */
+    margin-top: 15px;
+    font-weight: bold;
+    animation: shake 0.3s ease-in-out;
+    background-color: #ffebee; /* Light red background */
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.failure-options {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #cddc39; /* Lime border */
+    border-radius: 6px;
+    background-color: #f0f4c3; /* Light lime background */
+}
+
+.failure-options label {
+    display: inline-block;
+    margin-left: 8px;
+    font-weight: normal;
+    color: #558b2f; /* Dark green */
+}
+
+.failure-options input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 8px;
+}
