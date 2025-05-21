@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# Django stuff:
+*.log
+*.pot
+*.mo
+*.egg-info/
+.env
+.venv/
+venv/
+env/
+
+# OS X files
+.DS_Store
+
+# Jupyter Notebook files
+.ipynb_checkpoints
